@@ -56,7 +56,9 @@ Route::prefix('admin')->group(function () {
         Route::resource('pages','PagesController');
         Route::resource('users', 'UserController');
         Route::resource('sectionheads', 'SectionheadController');
+        Route::resource('stations', 'StationsController');
         //Route::resource('test', 'SectionheadController');
+        Route::get('/section_head', 'Head_stationController@index');
 
 
 

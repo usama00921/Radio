@@ -1,20 +1,21 @@
-{{-- \resources\views\themes\create.blade.php --}}
+{{-- \resources\views\users\create.blade.php --}}
 @extends('admin.layouts.app')
 
-@section('title', '| Create New Page')
+@section('title', '| Add User')
 
 @section('content')
+
  <!-- Content Header (Page header) -->
  <div class="content-header">
       <div class="container-fluid">
      
         <div class="row mb-2">
           <div class="col-sm-6">
-           
+            <h1 class="m-0 text-dark">Users</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/pages">Section Head</a></li>
+              <li class="breadcrumb-item"><a href="/pages">users</a></li>
               <li class="breadcrumb-item active">create</li>
             </ol>
           </div><!-- /.col -->
@@ -22,12 +23,13 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
+
 <div class='col-lg-10 col-lg-offset-1'>
 
-    <h1><i class='fa fa-themeisle'></i> Create Section Head</h1>
+    <h1><i class='fa fa-user-plus'></i> Add Station</h1>
     <hr>
 
-    {{ Form::open(array('url' => 'admin/sectionheads')) }}
+    {{ Form::open(array('url' => 'admin/stations')) }}
 
     <div class="form-group">
         {{ Form::label('title', 'Title') }}
@@ -36,18 +38,16 @@
 
     <div class="form-group">
         {{ Form::label('parent', 'Parant Name') }}
-        {{ Form::select('lstStyles', $sectionheads, null, ['class' => 'form-control']) }}
+        {{ Form::select('lstStyles', $stations, null, ['class' => 'form-control']) }}
     </div>
 
     <div class="form-group">
         {{ Form::label('isactive', 'is_active') }}
         {{Form::checkbox('isactive', true, true)}}
     </div>
-    
-
     {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
 
-    {{ Form::close() }}
+{{ Form::close() }}
 
 </div>
 

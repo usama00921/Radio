@@ -11,7 +11,7 @@
      
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Pages</h1>
+            
           </div>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -28,8 +28,8 @@
 
             <thead>
   <tr>
-  <th>Sr. No</th>
   <th>ID</th>
+  <th>Parent Head</th>
    <th>Title</th>
    <th>Edit</th>
    <th>Delete</th>
@@ -38,8 +38,9 @@
            <tbody>
                 @foreach ($sectionheads as $sectionhead)
                 <tr>
+                <td> {{$sectionhead->id}}</td>
                     <td>{{$sectionhead->sectionhead_id}} </td>
-                    <td> {{$sectionhead->id}}</td>
+                    
 
                     
                     <td>{{ $sectionhead->title }}</td>
