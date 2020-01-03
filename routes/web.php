@@ -55,10 +55,11 @@ Route::prefix('admin')->group(function () {
         Route::resource('theme_styles','ThemeStyleController');
         Route::resource('pages','PagesController');
         Route::resource('users', 'UserController');
-        Route::resource('sectionheads', 'SectionheadController');
-        Route::resource('stations', 'StationsController');
+        Route::resource('heads', 'HeadController');
+        Route::resource('stations', 'StationController');
+        Route::resource('stationhead', 'StationHeadController');
         //Route::resource('test', 'SectionheadController');
-        Route::get('/section_head', 'Head_stationController@index');
+        
 
 
 

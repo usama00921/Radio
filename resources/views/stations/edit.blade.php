@@ -11,11 +11,11 @@
      
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Users</h1>
+            <h1 class="m-0 text-dark">Stations</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/pages">Users</a></li>
+              <li class="breadcrumb-item"><a href="/pages">Stations</a></li>
               <li class="breadcrumb-item active">edit</li>
             </ol>
           </div><!-- /.col -->
@@ -36,10 +36,7 @@
         {{ Form::text('title', $stations->title, array('class' => 'form-control')) }}
     </div>
 
-    <div class="form-group">
-        {{ Form::label('parent', 'Parant Name') }}
-        {{ Form::select('lstStyles', $stations_name, $stations->station_id , ['class' => 'form-control']) }}
-    </div>
+    
   <?php 
     if($stations->isactive == "1")
     {

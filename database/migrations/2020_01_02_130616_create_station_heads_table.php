@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSectionheadsTable extends Migration
+class CreateStationHeadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateSectionheadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('heads', function (Blueprint $table) {
+        Schema::create('station_heads', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('station_id')->nullable();
             $table->unsignedBigInteger('head_id')->nullable();
+            $table->foreign('station_id')
+                  ->references('id')->on('stations')
+                  ->onDelete('cascade');
             $table->foreign('head_id')
                   ->references('id')->on('heads')
                   ->onDelete('cascade');
-            $table->string('title');
-            $table->boolean('is_active')->nullable();
-            
-            
+            $table->boolean('is_active');      
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ class CreateSectionheadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('heads');
+        Schema::dropIfExists('station_heads');
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Stations;
+use App\Station;
 use Illuminate\Http\Request;
 
-class StationsController extends Controller
+class StationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class StationsController extends Controller
         // print_r($sectionheads);
         
         // return view('stations.create')->with('stations', $stations);
-        $stations = Stations::all(); 
+        $stations = Station::all(); 
         
         return view('stations.index',compact('stations'));
     }
@@ -32,7 +32,7 @@ class StationsController extends Controller
     public function create()
     {
      
-        $stations = Stations::getallforselect();
+        $stations = Station::getallforselect();
         
         
         return view('stations.create',compact('stations'));
@@ -51,22 +51,36 @@ class StationsController extends Controller
             //'lstpageloc'=>'required',
             //'txtdContent'=>'required'
         ]);
-        $datasave = new Stations;
+        $datasave = new Station;
     
-        if($req->isactive == '1'){
+        // if(!empty($req->isactive)){
 
 
-            $datasave->station_id = $req->lstStyles;
-            $datasave->title = $req->title;
-            $datasave->isactive ='1';
-            $datasave->save();
+        //     $datasave->station_id = $req->lstStyles;
+        //     $datasave->title = $req->title;
+        //     $datasave->is_active ='1';
+        //     $datasave->save();
+        //         }
+        // else {
+        //     $datasave->station_id = $req->lstStyles;
+        //     $datasave->title = $req->title;
+        //     $datasave->is_active ='0';
+        //     $datasave->save();
+        //         }
+        if(!empty($req->isactive)){
+
+            $datasave->is_active ='1';
+           
                 }
         else {
-            $datasave->station_id = $req->lstStyles;
+
+            $datasave->is_active ='0';
+           
+            }
+        
+            
             $datasave->title = $req->title;
-            $datasave->isactive ='0';
             $datasave->save();
-                }
         
         return redirect()->route('stations.create')
             ->with('flash_message',
@@ -93,8 +107,8 @@ class StationsController extends Controller
      */
     public function edit($id)
     {
-        $stations = Stations::findOrFail($id);
-        $stations_name = Stations::getallforselect(); 
+        $stations = Station::findOrFail($id);
+        $stations_name = Station::getallforselect(); 
         //echo $stations;
         
         
@@ -115,25 +129,25 @@ class StationsController extends Controller
             //'lstpageloc'=>'required',
             //'txtdContent'=>'required'
         ]);
-        $datasave = Stations::findOrFail($id);
+        $datasave = Station::findOrFail($id);
 
         
-        if(!isset($req->isactive)){
+        if(!empty($req->isactive)){
 
-
-            $datasave->station_id = $req->lstStyles;
-            $datasave->title = $req->title;
-            $datasave->isactive ='1';
-            $datasave->save();
+            $datasave->is_active ='1';
+           
                 }
         else {
-            $datasave->station_id = $req->lstStyles;
-            $datasave->title = $req->title;
-            $datasave->isactive ='1';
-            $datasave->save();
-                }
+
+            $datasave->is_active ='0';
+           
+            }
         
-        return redirect()->route('stations.create')
+            
+            $datasave->title = $req->title;
+            $datasave->save();
+        
+        return redirect()->route('stations.index')
             ->with('flash_message',
              'Page successfully added.');
     }
@@ -141,12 +155,12 @@ class StationsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Stations  $stations
+     * @param  \App\Station  $stations
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $station = Stations::findOrFail($id);
+        $station = Station::findOrFail($id);
         $station->delete();
         //page_log::log_Entry($id,'Deleted') ;
 

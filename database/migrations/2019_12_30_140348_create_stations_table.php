@@ -15,12 +15,12 @@ class CreateStationsTable extends Migration
     {
         Schema::create('stations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('station_id');
+            $table->unsignedBigInteger('station_id')->nullable();
             $table->foreign('station_id')
                   ->references('id')->on('stations')
                   ->onDelete('cascade');
             $table->string('title');
-            $table->string('isactive');
+            $table->boolean('is_active');
             
             
             $table->timestamps();

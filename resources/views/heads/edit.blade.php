@@ -15,7 +15,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/pages">Sectionhead</a></li>
+              <li class="breadcrumb-item"><a href="/pages">Head</a></li>
               <li class="breadcrumb-item active">edit</li>
             </ol>
           </div><!-- /.col -->
@@ -29,19 +29,19 @@
     <h1><i class='fa fa-themeisle'></i> Update Section Head</h1>
     <hr>
 
-    {{ Form::open(array('route' => array('sectionheads.update', $sectionheads->id), 'method' => 'PUT')) }}
+    {{ Form::open(array('route' => array('heads.update', $heads->id), 'method' => 'PUT')) }}
 
     <div class="form-group">
         {{ Form::label('title', 'Title') }}
-        {{ Form::text('title', $sectionheads->title, array('class' => 'form-control')) }}
+        {{ Form::text('title', $heads->title, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
         {{ Form::label('parent', 'Parant Name') }}
-        {{ Form::select('lstStyles', $secheads_name, $sectionheads->sectionhead_id , ['class' => 'form-control']) }}
+        {{ Form::select('lstStyles', $heads_name, $heads->head_id , ['class' => 'form-control']) }}
     </div>
   <?php 
-    if($sectionheads->isactive == "1")
+    if($heads->isactive == "1")
     {
      ?>
           <div class="form-group">

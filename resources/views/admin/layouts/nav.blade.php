@@ -35,53 +35,28 @@
               </p>
             </a>
            
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Posts
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right"></span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/news/create" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Post</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/admin/news" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Posts</p>
-                </a>
-              </li>
-              
-             
-            </ul>
-          </li>
+          
             
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-              Section Heads
+              Heads
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right"></span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/sectionheads/create" class="nav-link">
+                <a href="/admin/heads/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add New </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/sectionheads" class="nav-link">
+                <a href="/admin/heads" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Sectionheads</p>
+                  <p>Manage heads</p>
                 </a>
               </li>
             </ul>
@@ -105,69 +80,19 @@
               <li class="nav-item">
                 <a href="/admin/stations" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Sectionheads</p>
+                  <p>Manage Stations</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Themes
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right"></span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/theme_styles" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Theme</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/admin/themes" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Themes</p>
-                </a>
-              </li>
-              
-             
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Pages
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right"></span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/pages/create" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/admin/pages" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Pages</p>
-                </a>
-              </li>
-              
-             
-            </ul>
-          </li>
+         
+         
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="/admin/stationhead" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                Gallery
+                Head_Stations
               </p>
             </a>
             <li class="nav-item has-treeview">
@@ -205,14 +130,7 @@
                 Roles
               </p>
             </a>
-            <li class="nav-item">
-            <a href="/admin/information" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Information
-              </p>
-            </a>
-          </li><li class="nav-item">
+           <li class="nav-item">
             <a href="/admin/logout" class="nav-link">
               <i class="fas fa-sign-out-alt"></i></i>
               <p>

@@ -27,7 +27,7 @@
                 <tr>
                     
                     <th>Station</th>
-                    <th>Parent Station</th>
+                    
                     <th>is_active</th>
                     <th>Date/Time Added</th>
                     
@@ -42,13 +42,18 @@
                     
                     <td>{{ $station->title }}</td>
                     
-                    <td>{{  $station->station_id }}</td>
                     
-                    <td>{{ $station->isactive }}</td>
+                    
+                    <td><?php if(!empty($station->is_active)){ 
+                      echo "Active";}
+                      else {
+                        echo "Not active";
+                      }?>
+
 
                     <td>{{ $station->created_at->format('F d, Y h:ia') }}</td>
                     <td><a href="{{ route('stations.edit', $station->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
-                    
+                    <a href="{{ route('stationhead.show', $station->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Manage Heads</a>
                     {!! Form::open(['method' => 'DELETE', 'route' => ['stations.destroy', $station->id] ]) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
@@ -61,7 +66,7 @@
         </table>
     </div>
 
-    <a href="{{ route('stations.create') }}" class="btn btn-success">Add User</a>
+    <a href="{{ route('stations.create') }}" class="btn btn-success">Add new Station</a>
 
 </div>
 

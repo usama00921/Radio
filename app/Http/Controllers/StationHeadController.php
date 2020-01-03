@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Stations;
-use App\Sectionhead;
+use App\Head;
+use App\Station;
+use App\DB;
 use Illuminate\Http\Request;
 
-class Head_stationController extends Controller
+class StationHeadController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -15,15 +22,82 @@ class Head_stationController extends Controller
 
     public function index()
     {
+        
+    }
 
-        $sectionheads = Sectionhead::all();
-        $station = Stations::all();
-        //$sectionheads = DB::table('sectionheads')->get();
-        //print_r($sectionheads);
-        print_r ($sectionheads->id);
-        die();
-        return view('head_station')->with('sectionheads', 'station');
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\StationHead  $stationHead
+     * @return \Illuminate\Http\Response
+     */
+    public function show( $id)
+    {
+        $heads = Head::getallforselect();
+        $headall = Head::all(); 
+
+       // print_r($heads);
+       
+        //die();
+        
+        $records = Head::all()->where('head_id', $id);
+        
+
+        return view('stationhead',compact('id','headall', 'records'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\StationHead  $stationHead
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(StationHead $stationHead)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\StationHead  $stationHead
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, StationHead $stationHead)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\StationHead  $stationHead
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(StationHead $stationHead)
+    {
+        //
     }
 }

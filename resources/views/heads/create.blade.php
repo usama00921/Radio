@@ -27,7 +27,7 @@
     <h1><i class='fa fa-themeisle'></i> Create Section Head</h1>
     <hr>
 
-    {{ Form::open(array('url' => 'admin/sectionheads')) }}
+    {{ Form::open(array('url' => 'admin/heads')) }}
 
     <div class="form-group">
         {{ Form::label('title', 'Title') }}
@@ -36,7 +36,7 @@
 
     <div class="form-group">
         {{ Form::label('parent', 'Parant Name') }}
-        {{ Form::select('lstStyles', $sectionheads, null, ['class' => 'form-control']) }}
+        {{ Form::select('lstStyles', $heads, null, ['class' => 'form-control']) }}
     </div>
 
     <div class="form-group">

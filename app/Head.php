@@ -13,7 +13,7 @@ class Head extends Model
     public static  function getallforselect()
     {
     	$heads = Head::all();
-        $arrHeads = array(0=>'--Select--');
+        $arrHeads = array(''=>'--Select--');
         foreach($heads as $head)
         {
             $arrHeads [$head->id] = $head->title;
