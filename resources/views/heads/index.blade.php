@@ -29,9 +29,10 @@
             <thead>
   <tr>
   <th>ID</th>
-  <th>Parent Head</th>
+  
    <th>Title</th>
    <th>is_active</th>
+   <th>Show</th>
    <th>Edit</th>
 
    <th>Delete</th>
@@ -41,7 +42,7 @@
                 @foreach ($heads as $head)
                 <tr>
                 <td> {{$head->id}}</td>
-                    <td>{{$head->head_id}} </td>
+                   
                     
 
                     
@@ -51,10 +52,10 @@
                       else {
                         echo "Not active";
                       }?></td>
-                   
+                   <td> <a href="{{ route('heads.show', $head->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Show</a></td>
                    <td>
                     <a href="{{ route('heads.edit', $head->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
-</td><td>
+                   </td><td>
                     {!! Form::open(['method' => 'DELETE', 'route' => ['heads.destroy', $head->id], 'onsubmit'=>'return confirm(\'Are you sure !!\')' ]) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
@@ -67,7 +68,7 @@
         </table>
     </div>
 
-    <a href="{{ route('heads.create') }}" class="btn btn-success">Add new Head</a>
+    <a href="{{ route('heads.create') }}/{{$parentid}}" class="btn btn-success">Add new Head</a>
 
 </div>
 

@@ -11,22 +11,9 @@
 |
 */
 
-// Route::get('/', function () {  return view('index'); });
-
-Route::get('about', function () { return view('about');});
-
-Route::get('contact-us', function () { return view('contact-us');});
-
-Route::get('/', 'FrontPagesController@home');
-
-Route::get('{pageSlug?}', 'FrontPagesController@index')->where('pageSlug', '([A-Za-z0-9_-])+');
 
 
-Route::group(['middleware' => 'auth'], function () {
-    
-Route::get('/admin/information', 'usersinfo@information');
-Route::POST('/admin/submit', 'usersinfo@submit');
-});
+
 
 
 
@@ -61,7 +48,7 @@ Route::prefix('admin')->group(function () {
         //Route::resource('test', 'SectionheadController');
         
 
-
+        Route::get('/heads/create/{id}','HeadController@createchild');
 
 
 

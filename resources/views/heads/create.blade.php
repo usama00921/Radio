@@ -34,12 +34,9 @@
         {{ Form::text('title', '', array('class' => 'form-control')) }}
     </div>
 
-    <div class="form-group">
-        {{ Form::label('parent', 'Parant Name') }}
-        {{ Form::select('lstStyles', $heads, null, ['class' => 'form-control']) }}
-    </div>
 
     <div class="form-group">
+    {{ Form::hidden('lstStyles', $parentid) }}
         {{ Form::label('isactive', 'is_active') }}
         {{Form::checkbox('isactive', true, true)}}
     </div>

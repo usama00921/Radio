@@ -28,10 +28,11 @@ class HeadController extends Controller
     public function index()
     {
         //
-        $heads = Head::all(); 
+        $parentid = null;
+        $heads = Head::where('head_id',null)->get(); 
        
         
-        return view('Heads.index',compact('heads'));
+        return view('Heads.index',compact('heads','parentid'));
     }
 
     /**
@@ -42,12 +43,14 @@ class HeadController extends Controller
     public function create()
     {
         //
-          
-        $heads = Head::getallforselect();
-        
-
-        
-        return view('Heads.create',compact('heads'));
+        $parentid = null;
+        $heads = Head::getallforselect();        
+        return view('Heads.create',compact('heads','parentid'));
+    }
+    public function createchild($parentid)
+    {
+        $heads = Head::getallforselect();        
+        return view('Heads.create',compact('heads','parentid'));
     }
 
     /**
@@ -62,7 +65,7 @@ class HeadController extends Controller
         //Validate name, email and password fields
         $this->validate($req, [
             
-            'title'=>'required'
+            'title'=>'required|unique:heads'
         ]);
         $datasave = new Head;
     
@@ -96,9 +99,14 @@ class HeadController extends Controller
      * @param  \App\head  $sectiohead
      * @return \Illuminate\Http\Response
      */
-    public function show(head $head)
+    public function show($id)
     {
-        //
+        $parentid = $id;
+        $heads = Head::where('head_id',$id)->get(); 
+       
+        
+        return view('Heads.index',compact('heads','parentid'));
+    
     }
 
     /**

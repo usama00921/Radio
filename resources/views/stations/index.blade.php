@@ -25,7 +25,7 @@
 
             <thead>
                 <tr>
-                    
+                    <th>Id</th>
                     <th>Station</th>
                     
                     <th>is_active</th>
@@ -39,7 +39,7 @@
                 @foreach ($stations as $station)
                 <tr>
 
-                    
+                <td>{{ $station->id }}</td>
                     <td>{{ $station->title }}</td>
                     
                     

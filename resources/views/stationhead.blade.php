@@ -10,7 +10,7 @@
      
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Head Station</h1>
+            <h1 class="m-0 text-dark"></h1>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -18,28 +18,47 @@
     <!-- /.content-header -->
 
 <div class="col-lg-10 col-lg-offset-1">
-    <h1><i class="fa fa-key"></i> Head Station</h1>
+    <h1><i class="fa fa-key"></i> {{$station->title}} Station</h1>
 
     
     
     <div class="form-group">
        <!--  {{ Form::label('Head', 'Head Name') }}  -->
-       <?php 
+<!--        
        foreach($headall as $head)
        {
         
        
        
            ?>
-           <input type="checkbox" value="<?php echo $head->id; ?>"> <?php echo $head->title; ?>
-           <?php 
+           <input type="checkbox" value=" echo $head->id; ?>">  echo $head->title; ?>
+           
        }
-       ?>
-        
-        
+       ?> -->
+       {{ Form::open(array('url' => 'admin/stationhead')) }}
+       <div class="form-group">
+        {{ Form::label('isactive', 'Head Stations') }}
+       {{ Form::select('lstStyles', $heads, null, ['class' => 'form-control', 'onchange' => 'load($(this))']) }}
+       </div>
+       <div  class="form-group">
+       {{ Form::label('isactive', 'Sub Stations') }}
+       {{ Form::select('listchild', array(), null, ['class' => 'form-control', 'id' => 'listchild']) }}
+       </div>
+       <div class="form-group">
+        {{ Form::label('isactive', 'is_active') }}
+        {{Form::checkbox('isactive', true, true)}}
+    </div>
+       {{ Form::hidden('station_id', $id) }}
+       
+    {{ Form::submit('Map', array('class' => 'btn btn-primary')) }}
+
+{{ Form::close() }}
     </div>
     
-    
+
+    @if($errors->any())
+<h4>{{$errors->first()}}</h4>
+@endif
     
     <hr>
     <div class="table-responsive">
@@ -47,20 +66,20 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>Title</th>
+                    <th>Heads</th>
                     <th>is_active</th>
                     <th>Time stamp</th>
-
+                    <th>Delete</th>
                 </tr>
             </thead>
-
+        {{ $id}}
             <tbody>
             @foreach ($records as $record)
                 <tr>
 
                     
                     <td>{{ $record->id }}</td>
-                    <td>{{ $record->title }}</td>
+                    <td>{{ $record->head_id }}</td>
                     
                     
                     
@@ -72,18 +91,25 @@
                       }?>
 
 
-                    <td>{{ $station->created_at->format('F d, Y h:ia') }}</td>
+                    <td>{{ $record ->created_at->format('F d, Y h:ia') }}</td>
+                  <td>{!! Form::open(['method' => 'DELETE', 'route' => ['stationhead.destroy', $record->id] ]) !!}
+                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}</td>
                     
                                  </tr>
                 @endforeach
                
             </tbody>
-
+            
         </table>
     </div>
 
-    <a href="{{ route('stationhead.update', $id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
-
+    
 </div>
-
+<script>
+function load(obj){
+console.log(obj.val());
+$('#listchild').load('/api/getchilds/'+obj.val());
+}
+</script>
 @endsection
