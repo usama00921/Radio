@@ -38,12 +38,14 @@
        {{ Form::open(array('url' => 'admin/stationhead')) }}
        <div class="form-group">
         {{ Form::label('isactive', 'Head Stations') }}
-       {{ Form::select('lstStyles', $heads, null, ['class' => 'form-control', 'onchange' => 'load($(this))']) }}
+       {{ Form::select('lstchild[]', $heads, null, ['class' => 'form-control', 'onchange' => 'load($(this))']) }}
        </div>
-       <div  class="form-group">
-       {{ Form::label('isactive', 'Sub Stations') }}
-       {{ Form::select('listchild', array(), null, ['class' => 'form-control', 'id' => 'listchild']) }}
+       
+
+       <div class="form-group" id="listchild">
+
        </div>
+
        <div class="form-group">
         {{ Form::label('isactive', 'is_active') }}
         {{Form::checkbox('isactive', true, true)}}
@@ -106,10 +108,27 @@
 
     
 </div>
+<!-- <script>
+function load(obj){
+//console.log(obj.val());
+$('#listchild-'+obj.val()).remove();
+$('#listchild').html($("<div id='listchild-"+obj.val()+"'></div>"));
+  $.get('/api/getchilds/'+obj.val(),function(data){
+    console.log(data);
+    $('#listchild-'+obj.val()).append($(data));
+  });
+}
+</script> -->
+
 <script>
 function load(obj){
-console.log(obj.val());
-$('#listchild').load('/api/getchilds/'+obj.val());
+//console.log(obj.val());
+//$('#listchild-'+obj.val()).remove();
+$('#listchild').html($("<div id='listchild-"+obj.val()+"'></div>"));
+  $.get('/api/getchilds/'+obj.val(),function(data){
+    console.log(data);
+    $('#listchild-'+obj.val()).append($(data));
+  });
 }
 </script>
 @endsection

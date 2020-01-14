@@ -85,16 +85,60 @@
               </li>
             </ul>
           </li>
-         
-         
           </li>
-          <li class="nav-item">
-            <a href="/admin/stationhead" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+          
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
               <p>
-                Head_Stations
+              Departments
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right"></span>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/departments/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add New </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/departments" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Departments</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+              Posts
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right"></span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/posts/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add New </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/posts" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Posts</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
             <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
