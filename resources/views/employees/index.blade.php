@@ -9,7 +9,7 @@
       <div class="container-fluid">
      
         <div class="row mb-2">
-          <div class="col-sm-12">
+          <div class="col-sm-6">
             
           </div>
         </div><!-- /.row -->
@@ -17,8 +17,8 @@
     </div>
     <!-- /.content-header -->
 
-<div class="col-lg-12 col-lg-offset-1">
-    <h1><i class="fa fa-users"></i> Posts Administration </h1>
+<div class="col-lg-10 col-lg-offset-1">
+    <h1><i class="fa fa-users"></i> Stations administration </h1>
     <hr>
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
@@ -26,9 +26,8 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Title</th>
-                    <th>Group</th>
-                    <th>Post Type</th>
+                    <th>Station</th>
+                    
                     <th>is_active</th>
                     <th>Date/Time Added</th>
                     
@@ -37,27 +36,25 @@
             </thead>
 
             <tbody>
-                @foreach ($posts as $post)
+                @foreach ($stations as $station)
                 <tr>
-                <td>{{ $post->id }}</d>
-                
-                    <td>{{ $post->title }}</td>
-                    <td>{{ $post->group }}</td>
-                    <td>{{ $post->type }}</td>
+
+                <td>{{ $station->id }}</td>
+                    <td>{{ $station->title }}</td>
                     
                     
                     
-                    <td><?php if(!empty($post->is_active)){ 
+                    <td><?php if(!empty($station->is_active)){ 
                       echo "Active";}
                       else {
                         echo "Not active";
                       }?>
 
 
-                    <td>{{ $post->created_at->format('F d, Y h:ia') }}</td>
-                    <td><a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
-                    
-                    {!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id] ]) !!}
+                    <td>{{ $station->created_at->format('F d, Y h:ia') }}</td>
+                    <td><a href="{{ route('stations.edit', $station->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+                    <a href="{{ route('stationhead.show', $station->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Manage Heads</a>
+                    {!! Form::open(['method' => 'DELETE', 'route' => ['stations.destroy', $station->id] ]) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
 
@@ -68,11 +65,9 @@
 
         </table>
     </div>
-                      
-    <a href="{{ route('posts.create') }}" class="btn btn-success">Add new Post</a>
+
+    <a href="{{ route('stations.create') }}" class="btn btn-success">Add new Station</a>
 
 </div>
-
-
 
 @endsection

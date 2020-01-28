@@ -1,14 +1,18 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="/">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2019- <a href="//www.radio.gov.pk/">Pakistan Broadcasting Corporation</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.1
+      <b>Version</b> 2.0
     </div>
   </footer>
 
  
 </div>
 <!-- ./wrapper -->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'></script>
+<script  src="/multi-form/script.js"></script>
+
 
 <!-- jQuery -->
 <script src="/plugins/jquery/jquery.min.js"></script>

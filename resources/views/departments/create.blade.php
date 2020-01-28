@@ -24,7 +24,7 @@
     </div>
     <!-- /.content-header -->
 
-<div class='col-lg-10 col-lg-offset-1'>
+<div class='col-lg-12 col-lg-offset-1'>
 
     <h1><i class='fa fa-user-plus'></i> Add Department</h1>
     <hr>

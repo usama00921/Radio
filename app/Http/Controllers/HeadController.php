@@ -30,9 +30,10 @@ class HeadController extends Controller
         //
         $parentid = null;
         $heads = Head::where('head_id',null)->get(); 
+        $linkhead = "something";
        
         
-        return view('Heads.index',compact('heads','parentid'));
+        return view('heads.index',compact('heads','parentid','linkhead'));
     }
 
     /**
@@ -44,13 +45,15 @@ class HeadController extends Controller
     {
         //
         $parentid = null;
-        $heads = Head::getallforselect();        
-        return view('Heads.create',compact('heads','parentid'));
+        $heads = Head::getallforselect();       
+        $linkhead = "something"; 
+        return view('heads.create',compact('heads','parentid','linkhead'));
     }
     public function createchild($parentid)
     {
         $heads = Head::getallforselect();        
-        return view('Heads.create',compact('heads','parentid'));
+        $linkhead = "something";
+        return view('heads.create',compact('heads','parentid','linkhead'));
     }
 
     /**
@@ -83,11 +86,11 @@ class HeadController extends Controller
             $datasave->head_id = $req->lstStyles;
             $datasave->title = $req->title;
             $datasave->save();
-
+            $linkhead = "something";
     //Redirect to the users.index view and display message
         return redirect()->route('heads.index')
             ->with('flash_message',
-             'Page successfully added.');
+             'Page successfully added.','linkhead');
 
 
 
@@ -104,8 +107,8 @@ class HeadController extends Controller
         $parentid = $id;
         $heads = Head::where('head_id',$id)->get(); 
        
-        
-        return view('Heads.index',compact('heads','parentid'));
+        $linkhead = "something";
+        return view('heads.index',compact('heads','parentid','linkhead'));
     
     }
 
@@ -120,7 +123,8 @@ class HeadController extends Controller
         
         $heads = Head::findOrFail($id);
         $heads_name = Head::getallforselect();
-        return view('Heads.edit', compact('heads','heads_name'));
+        $linkhead = "something";
+        return view('heads.edit', compact('heads','heads_name','linkhead'));
     }
 
     /**
@@ -155,11 +159,11 @@ class HeadController extends Controller
             $datasave->head_id = $req->lstStyles;
             $datasave->title = $req->title;
             $datasave->save();
-        
+            $linkhead = "something";
     //Redirect to the users.index view and display message
         return redirect()->route('heads.index')
             ->with('flash_message',
-             'Page successfully updated.');
+             'Page successfully updated.','linkhead');
     }
 
     /**
@@ -172,11 +176,12 @@ class HeadController extends Controller
     {
         $page = Head::findOrFail($id);
         $page->delete();
+        $linkhead = "something";
         //page_log::log_Entry($id,'Deleted') ;
 
         return redirect()->route('heads.index')
             ->with('flash_message',
-             'Page successfully deleted');
+             'Page successfully deleted','linkhead');
     }
 }
 

@@ -20,8 +20,9 @@ class StationController extends Controller
         
         // return view('stations.create')->with('stations', $stations);
         $stations = Station::all(); 
+        $linkstation = "something";
         
-        return view('stations.index',compact('stations'));
+        return view('stations.index',compact('stations','linkstation'));
     }
 
     /**
@@ -34,8 +35,8 @@ class StationController extends Controller
      
         $stations = Station::getallforselect();
         
-        
-        return view('stations.create',compact('stations'));
+        $linkstation = "something";
+        return view('stations.create',compact('stations','linkstation'));
     }
 
     /**
@@ -81,10 +82,10 @@ class StationController extends Controller
             
             $datasave->title = $req->title;
             $datasave->save();
-        
+            $linkstation = "something";
         return redirect()->route('stations.create')
             ->with('flash_message',
-             'Page successfully added.');
+             'Page successfully added.','linkstation');
 
     }
 
@@ -110,9 +111,10 @@ class StationController extends Controller
         $stations = Station::findOrFail($id);
         $stations_name = Station::getallforselect(); 
         //echo $stations;
+        $linkstation = "something";
         
         
-        return view('stations.edit', compact('stations', 'stations_name'));
+        return view('stations.edit', compact('stations', 'stations_name','linkstation'));
     }
 
     /**
@@ -146,10 +148,10 @@ class StationController extends Controller
             
             $datasave->title = $req->title;
             $datasave->save();
-        
+            $linkstation = "something";
         return redirect()->route('stations.index')
             ->with('flash_message',
-             'Page successfully added.');
+             'Page successfully added.','linkstation');
     }
 
     /**
@@ -163,9 +165,9 @@ class StationController extends Controller
         $station = Station::findOrFail($id);
         $station->delete();
         //page_log::log_Entry($id,'Deleted') ;
-
+        $linkstation = "something";
         return redirect()->route('stations.index')
             ->with('flash_message',
-             'Page successfully deleted');
+             'Page successfully deleted','linkstation');
     }
 }

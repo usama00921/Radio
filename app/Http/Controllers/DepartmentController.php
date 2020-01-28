@@ -17,8 +17,8 @@ class DepartmentController extends Controller
     {
         $stations = Station::getallforselect();
         $departments = Department::all();
-        
-        return view('departments.index',compact('stations','departments'));
+        $p="something";
+        return view('departments.index',compact('stations','departments','p'));
     }
 
     /**
@@ -29,7 +29,8 @@ class DepartmentController extends Controller
     public function create()
     {
         $stations = Station::getallforselect();
-        return view('departments.create',compact('stations'));
+        $p="something";
+        return view('departments.create',compact('stations','p'));
     }
 
     /**
@@ -75,9 +76,10 @@ else {
      $datasave->type = $req->type;
      $datasave->title = $req->title;
      $datasave->save();
+     $p="something";
     return redirect()->route('departments.index')
     ->with('flash_message',
-     'Page successfully added.');
+     'Page successfully added.', 'p');
 
     }
 
@@ -102,8 +104,8 @@ else {
     {
         $stations = Station::getallforselect();
         $departments = Department::findOrFail($id);
-        
-        return view('departments.edit',compact('stations','departments'));
+        $p='something';
+        return view('departments.edit',compact('stations','departments','p'));
     }
 
     /**
@@ -138,9 +140,10 @@ else {
      $datasave->type = $req->type;
      $datasave->title = $req->title;
      $datasave->save();
+     $p="something";
     return redirect()->route('departments.index')
     ->with('flash_message',
-     'Page successfully Edited.');
+     'Page successfully Edited.','p');
     }
 
     /**
@@ -153,11 +156,12 @@ else {
     {
         $department = Department::findOrFail($id);
         $department->delete();
+        $p="something";
         //page_log::log_Entry($id,'Deleted') ;
 
         return redirect()->route('departments.index')
             ->with('flash_message',
-             'Page successfully deleted');
+             'Page successfully deleted','p');
     
     }
 }

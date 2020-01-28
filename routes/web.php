@@ -47,6 +47,8 @@ Route::prefix('admin')->group(function () {
         Route::resource('stationhead', 'StationHeadController');
         Route::resource('departments', 'DepartmentController');
         Route::resource('posts', 'PostController');
+        Route::resource('employees', 'EmployeeController');
+        Route::post("employees/store","EmployeeController@store");
         //Route::resource('test', 'SectionheadController');
         
 

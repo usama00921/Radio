@@ -3,10 +3,10 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="/" class="brand-link">
       <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">TechCefaCos</span>
+      <span class="brand-text font-weight-light">MIS PBC</span>
     </a>
 
     <!-- Sidebar -->
@@ -17,7 +17,7 @@
           <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Account Setting</a>
+          <a href="/" class="d-block">Account Setting</a>
         </div>
       </div>
 
@@ -27,7 +27,8 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="/admin/index" class="nav-link active">
+            <a href="/admin/index" 
+            class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -38,7 +39,11 @@
           
             
           <li class="nav-item has-treeview">
+          <?php if(isset($linkhead)){?>
+          <a href="#" class="nav-link active">
+         <?php } else {?>
             <a href="#" class="nav-link">
+         <?php }?>
               <i class="nav-icon fas fa-copy"></i>
               <p>
               Heads
@@ -62,7 +67,11 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
+          <?php if(isset($linkstation)){?>
+          <a href="#" class="nav-link active">
+         <?php } else {?>
             <a href="#" class="nav-link">
+         <?php }?>
               <i class="nav-icon fas fa-copy"></i>
               <p>
               Stations
@@ -89,7 +98,13 @@
           
 
           <li class="nav-item has-treeview">
+
+          <?php if(isset($p)){?>
+          <a href="#" class="nav-link active">
+         <?php } else {?>
             <a href="#" class="nav-link">
+         <?php }?>
+         
               <i class="nav-icon fas fa-copy"></i>
               <p>
               Departments
@@ -115,7 +130,11 @@
 
 
           <li class="nav-item has-treeview">
+          <?php if(isset($linkpost)){?>
+          <a href="#" class="nav-link active">
+         <?php } else {?>
             <a href="#" class="nav-link">
+         <?php }?>
               <i class="nav-icon fas fa-copy"></i>
               <p>
               Posts
@@ -139,8 +158,42 @@
             </ul>
           </li>
 
-            <li class="nav-item has-treeview">
+
+          <li class="nav-item has-treeview">
+          <?php if(isset($e)){?>
+          <a href="#" class="nav-link active">
+         <?php } else {?>
             <a href="#" class="nav-link">
+         <?php }?>
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+              Employees
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right"></span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/employees/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add New </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/employees" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Employee</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+            <li class="nav-item has-treeview">
+            <?php if(isset($linkuser)){?>
+          <a href="#" class="nav-link active">
+         <?php } else {?>
+            <a href="#" class="nav-link">
+         <?php }?>
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Users

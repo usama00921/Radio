@@ -15,8 +15,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        
-        return view('posts.index',compact('posts'));
+        $linkpost = "something";
+        return view('posts.index',compact('posts','linkpost'));
     }
 
     /**
@@ -26,7 +26,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $linkpost="something";
+        return view('posts.create',compact('linkpost'));
     }
 
     /**
@@ -54,9 +55,10 @@ class PostController extends Controller
         $datasave->type = $req->type;
         $datasave->title = $req->title;
         $datasave->save();
+        $linkpost = "something";
         return redirect()->route('posts.index')
            ->with('flash_message',
-            'Page successfully added.');
+            'Page successfully added.','linkpost');
 
     }
 
@@ -80,8 +82,8 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-        
-        return view('posts.edit',compact('post'));
+        $linkpost = "something";
+        return view('posts.edit',compact('post','linkpost'));
     }
 
     /**
@@ -94,7 +96,7 @@ class PostController extends Controller
     public function update(Request $req,$id)
     {
         $validatedData = $req->validate([
-            'title' => 'required|unique:posts|max:255',
+            'title' => 'required|max:255',
             'group' => 'required',
             'type' => 'required'
         ]);
@@ -111,9 +113,10 @@ class PostController extends Controller
         $datasave->type = $req->type;
         $datasave->title = $req->title;
         $datasave->save();
-        return redirect()->route('posts')
+        $linkpost = "something";
+        return redirect()->route('posts.index')
            ->with('flash_message',
-            'Page successfully added.');
+            'Page successfully added.','linkpost');
     }
 
     /**
@@ -126,10 +129,11 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
+        $linkpost = "something";
         //page_log::log_Entry($id,'Deleted') ;
 
         return redirect()->route('posts.index')
             ->with('flash_message',
-             'Page successfully deleted');
+             'Page successfully deleted','linkpost');
     }
 }

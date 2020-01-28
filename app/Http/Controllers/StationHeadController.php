@@ -23,7 +23,7 @@ class StationHeadController extends Controller
 
     public function index()
     {
-        echo "dddd";
+        //echo "dddd";
     }
 
     /**
